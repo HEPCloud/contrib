@@ -7,6 +7,6 @@ A recommended structure is to have src and doc subdirectories within each projec
 A README.md file in the project directory and onle line added to the following list will help identify the project.
 
 Projects:
-* _example_: example project
+* _example _ : example project
 
 
