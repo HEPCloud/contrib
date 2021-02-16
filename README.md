@@ -7,7 +7,7 @@ A recommended structure is to have src and doc subdirectories within each projec
 One line added to the following list will help identify your project.
 
 Projects:
-* _example _ : example project
+* _example\_ : example project
 
 
-*PS This repository is public, do not add any credential, password, or private information.*
+**NB This repository is public, do not add any credential, password, or private information.**
