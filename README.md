@@ -10,3 +10,4 @@ Projects:
 * _example _ : example project
 
 
+*PS This repository is public, do not add any credential, password, or private information.*
