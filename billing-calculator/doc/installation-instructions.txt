@@ -1,0 +1,149 @@
+# Installation instruction for the AWS bill calculator tools on Linux
+# Instructions for the GCE bill calculator are at the end.
+# These two instructions sets should become one
+######################################################################
+
+# Results are displayed at http://fermicloud399.fnal.gov/hcf-priv/dashboard/db/aws-account-spending
+
+# Install pip
+[root@fermicloudXXX ~]# wget https://bootstrap.pypa.io/get-pip.py
+[root@fermicloudXXX ~]# python get-pip.py
+
+# Install boto
+[root@fermicloudXXX ~]# pip install boto3
+
+# Get bill-calculator rpm
+
+# Install bill-calculator rpm
+[root@fermicloudXXX ~]# rpm -i bill-calculator-0.5-5.noarch.rpm 
+
+# create unprivileged user and give access to administrastors
+[root@fermicloudXXX ~]# adduser awsbilling -m
+[root@fermicloudXXX ~]# cat > ~awsbilling/.k5login
+userXYZ@FNAL.GOV
+[root@fermicloudXXX ~]# chown awsbilling ~awsbilling/.k5login
+[root@fermicloudXXX ~]# mkdir ~awsbilling/bill-data/
+[root@fermicloudXXX ~]# chown awsbilling ~awsbilling/bill-data/
+
+# Create secure location for AWS credentials. E.g. on FermiCloud...
+[root@fermicloudXXX ~]# mkdir -p /etc/cloud-security/awsbilling/
+[root@fermicloudXXX ~]# chmod 700 /etc/cloud-security/awsbilling/
+[root@fermicloudXXX ~]# chown awsbilling /etc/cloud-security/awsbilling/
+[root@fermicloudXXX ~]# ln -s /etc/cloud-security/awsbilling/ ~awsbilling/.aws
+
+# Copy credentials in /etc/cloud-security/awsbilling/credentials 
+[root@fermicloudXXX ~]# cp ...
+[root@fermicloudXXX ~]# chown awsbilling /etc/cloud-security/awsbilling/credentials
+[root@fermicloudXXX ~]# chmod 400 /etc/cloud-security/awsbilling/credentials 
+[root@fermicloudXXX ~]# cat /etc/cloud-security/awsbilling/credentials 
+
+[default]
+aws_access_key_id = 
+aws_secret_access_key = 
+
+[BillingNOvA]
+aws_access_key_id = XXXXX
+aws_secret_access_key = XXXXX
+
+[BillingCMS]
+aws_access_key_id = XXXXX
+aws_secret_access_key = XXXXX
+
+[BillingRnD]
+aws_access_key_id = XXXXX
+aws_secret_access_key = XXXXX
+
+[BillingFermilab]
+aws_access_key_id = XXXXX
+aws_secret_access_key = XXXXX
+
+# Configure alarm threshold and official balances by editing the file below.
+# Consider giving awsbilling user the privileges to change configuration
+[root@fermicloudXXX ~]# vi /opt/bill-calculator/bin/AccountConstants.py
+
+# Configure Service Now account.
+# 1. Declare service now profile.
+[root@fermicloudXXX ~]# export SNOW_PROFILE=${HOME}/bc_config/cf
+# 2. Create Service Now client profile as:
+[root@fermicloudXXX ~]# cat $SNOW_PROFILE
+[AWSSNow]
+username=XXXX
+password=XXXX
+assignment_group=XXXX
+categorization=High Throughput Computing -- Bills
+ci=hepcloud-aws-zone-monitor
+instance_url=https://fermidev.service-now.com/
+event_summary=AWS Billing Alarm
+
+# Create conjob
+[root@fermicloudXXX ~]# su awsbilling
+[awsbilling@fermicloudXXX ~]$ crontab -e
+5 1,7,13,19 * * * cd ~awsbilling/bill-data/ ; time python /opt/bill-calculator/bin/billAnalysis.py >> billAnalysis.log 2>&1
+20 1,7,13,19 * * * cd ~awsbilling/bill-data/ ; time python /opt/bill-calculator/bin/billAlarms.py >> billAlarms.log 2>&1
+55 1,7,13,19 * * * cd ~awsbilling/bill-data/ ; time python /opt/bill-calculator/bin/billDataEgress.py >> billDataEgress.log 2>&1 
+
+
+----
+# Installation instruction for the GCE bill calculator tools on Linux
+
+- Results are displayed at http://fermicloud399.fnal.gov/hcf-priv/dashboard/db/gce-account-spending
+
+- Install pip
+[root@fermicloudXXX ~]# wget https://bootstrap.pypa.io/get-pip.py
+[root@fermicloudXXX ~]# python get-pip.py
+
+- Install boto, gcs_oauth2_boto_plugin, and depending libraries
+yum install python-devel python-setuptools libffi-devel
+pip install gcs-oauth2-boto-plugin==1.9 --upgrade
+pip install oauth2client==1.5.2
+
+- Install gcloud tool. A good location is /usr/local/bin
+[root@fermicloud353 ~]# curl https://sdk.cloud.google.com | bash
+
+- Get bill-calculator rpm
+
+- Install bill-calculator rpm
+[root@fermicloudXXX ~]# rpm -i bill-calculator-0.5-2.noarch.rpm
+
+- create unprivileged user and give access to administrastors
+[root@fermicloudXXX ~]# adduser awsbilling -m
+[root@fermicloudXXX ~]# cat > ~awsbilling/.k5login
+userXYZ@FNAL.GOV
+[root@fermicloudXXX ~]# chown awsbilling ~awsbilling/.k5login
+[root@fermicloudXXX ~]# mkdir ~awsbilling/bill-data/
+[root@fermicloudXXX ~]# chown awsbilling ~awsbilling/bill-data/
+
+- Create secure location for GCE credentials. E.g. on FermiCloud...
+[root@fermicloudXXX ~]# mkdir -p /etc/cloud-security/gcebilling/
+[root@fermicloudXXX ~]# chmod 700 /etc/cloud-security/gcebilling/
+[root@fermicloudXXX ~]# chown awsbilling /etc/cloud-security/gcebilling/
+[root@fermicloudXXX ~]# mkdir ~awsbilling/.config
+[root@fermicloudXXX ~]# chown awsbilling ~awsbilling/.config
+[root@fermicloudXXX ~]# chmod 700 ~awsbilling/.config
+[root@fermicloudXXX ~]# ln -s /etc/cloud-security/gcebilling/ ~awsbilling/.config/gcloud
+
+- If not done yet, create “billing” service user in GCE and grant role “Storage Object Admin” 
+(least privilege to list bucket content). 
+Create / download the key in JSON format from the GCE console under the “service accounts” tab to  ~/.config/gcloud
+
+- Copy credentials in /etc/cloud-security/awsbilling/credentials (assumes they are in ~root/)
+[root@fermicloudXXX ~]# mv Fermilab\ POC-26e142dd88d2.json ~awsbilling/.config/gcloud/
+[root@fermicloudXXX ~]# chown awsbilling ~awsbilling/.config/gcloud/Fermilab\ POC-26e142dd88d2.json
+[root@fermicloudXXX ~]# chmod 600 ~awsbilling/.config/gcloud/Fermilab\ POC-26e142dd88d2.json
+
+- Activate credentials
+This creates the legacy credential files passed to boto via environment variable BOTO_CONFIG
+[root@fermicloud353 ~]# ksu awsbilling
+[awsbilling@fermicloud353 root]$ cd
+[awsbilling@fermicloud353 ~]$ gcloud auth activate-service-account billing@fermilab-poc.iam.gserviceaccount.com --key-file ~/.config/gcloud/Fermilab\ POC-26e142dd88d2.json
+
+- Configure alarm threshold and official balances by editing the file below. 
+Consider giving awsbilling user the privileges to change configuration
+[root@fermicloudXXX ~]# vi /opt/bill-calculator/bin/AccountConstants.py
+
+- Create conjob
+[root@fermicloudXXX ~]# su awsbilling
+[awsbilling@fermicloudXXX ~]$ crontab -e
+5 3,15 * * * cd ~awsbilling/bill-data/ ; time BOTO_CONFIG=~awsbilling/.config/gcloud/legacy_credentials/billing\@fermilab-poc.iam.gserviceaccount.com/.boto python /opt/bill-calculator/bin/billAnalysisGCE.py >> billAnalysisGCE.log 2>&1
+20 3,15 * * * cd ~awsbilling/bill-data/ ; time BOTO_CONFIG=~awsbilling/.config/gcloud/legacy_credentials/billing\@fermilab-poc.iam.gserviceaccount.com/.boto python /opt/bill-calculator/bin/billAlarmsGCE.py >> billAlarms.log 2>&1
+
