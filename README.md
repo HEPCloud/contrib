@@ -12,6 +12,6 @@ One line added to the following list will help identify your project.
 
 Projects:
 * _example\_ : example project
-
+* site_specific: scripts used to run on some sites (Frontera, Stampede2)
 
 **NB This repository is public, do not add any credential, password, or private information.**
