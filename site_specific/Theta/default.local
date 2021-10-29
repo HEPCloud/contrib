@@ -1,0 +1,4 @@
+CVMFS_HTTP_PROXY="http://***REMOVED***:3128"
+CVMFS_CACHE_BASE=/local/scratch/uscms/cvmfs-cache
+CVMFS_QUOTA_LIMIT=10000
+CMS_LOCAL_SITE=T3_US_ANL
