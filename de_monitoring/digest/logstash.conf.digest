@@ -1,0 +1,31 @@
+# This conf file is to take raw dCache billing data from Kafka, clean it up, and write it to a digest topic in Kafka
+input {
+    kafka {
+        bootstrap_servers => "lssrv02.fnal.gov:9092"
+        topics => ["test.hepcloud.de"]
+        auto_offset_reset => "earliest"
+        decorate_events => true
+        group_id => "digest_hepcloud-de_${KAFKA_SUFFIX:SETSOMETHING}"
+        codec => "json"
+        type => "billing"
+    }
+} 
+
+filter {
+    mutate { copy => { "[@metadata][kafka]" => "kafka" } }
+    mutate { copy => { "[@metadata][kafka][topic]" => "ingestTopic" } }
+    if [date] {
+        date {
+            match => [ "date", "ISO8601" ]
+        }
+    }
+}
+    
+output {
+#    stdout {codec=>"rubydebug"}
+    kafka {
+	bootstrap_servers => "lssrv02.fnal.gov:9092"
+        topic_id => "digest.test.hepcloud.de"
+	codec => "json"
+    }
+}

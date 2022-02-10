@@ -1,0 +1,123 @@
+{
+  "index_patterns": "hepcloud-classads-slots-*",
+  "settings": {
+    "index": {
+      "refresh_interval": "60s",
+      "number_of_shards" : "3",
+      "mapping": {
+        "ignore_malformed": true
+      }
+    }
+  },
+  "mappings": {
+    "Machine_status": {
+      "dynamic_templates": [
+        {
+          "string_fields": {
+            "match": "*",
+            "match_mapping_type": "string",
+            "mapping": {
+              "type": "keyword",
+              "ignore_above": "200"
+            }
+          }
+        },
+        {
+          "double_fields": {
+            "match": "*",
+            "match_mapping_type": "double",
+            "mapping": {
+              "type": "double",
+              "doc_values": true
+            }
+          }
+        },
+        {
+          "long_fields": {
+            "match": "*",
+            "match_mapping_type": "long",
+            "mapping": {
+              "type": "long",
+              "doc_values": true
+            }
+          }
+        },
+        {
+          "date_fields": {
+            "match": "*",
+            "match_mapping_type": "date",
+            "mapping": {
+              "type": "date",
+              "doc_values": true
+            }
+          }
+        }
+      ],
+      "properties": {
+        "@timestamp": {
+          "type": "date",
+          "doc_values": true
+        },
+        "@version": {
+          "type": "keyword",
+          "doc_values": true
+        },
+        "LoadAvg": {
+          "type" : "float"
+        },
+        "CPUsUsage": {
+          "type" : "double"
+        },
+        "TotalSlotDisk": {
+          "type" : "double"
+        },
+        "TotalLoadAvg": {
+          "type" : "double"
+        },
+        "CondorLoadAvg": {
+          "type" : "double"
+        },
+        "MonitorSelfCPUUsage": {
+          "type" : "double"
+        },
+        "Rank": {
+          "type" : "long"
+        },
+        "GLIDEIN_STARTEXPR_WALLTIME_FACTOR": {
+          "type" : "long"
+        },
+        "TotalCondorLoadAvg": {
+          "type" : "double"
+        },
+        "LoadAvg_str": {
+          "type" : "keyword"
+        },
+        "CPUsUsage_str": {
+          "type" : "keyword"
+        },
+        "TotalSlotDisk_str": {
+          "type" : "keyword"
+        },
+        "TotalLoadAvg_str": {
+          "type" : "keyword"
+        },
+        "CondorLoadAvg_str": {
+          "type" : "keyword"
+        },
+        "MonitorSelfCPUUsage_str": {
+          "type" : "keyword"
+        },
+        "Rank_str": {
+          "type" : "keyword"
+        },
+        "GLIDEIN_STARTEXPR_WALLTIME_FACTOR_str": {
+          "type" : "keyword"
+        },
+        "TotalCondorLoadAvg_str": {
+          "type" : "keyword"
+        }
+      }
+    }
+  },
+  "aliases": {}
+}
