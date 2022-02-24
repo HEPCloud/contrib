@@ -1,5 +1,5 @@
 {
-  "index_patterns": "hepcloud-classads-slots-*",
+  "index_patterns": "hepcloud-de-*",
   "settings": {
     "index": {
       "refresh_interval": "60s",
