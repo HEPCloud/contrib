@@ -1,5 +1,5 @@
-GSI "^/DC=org/DC=incommon/C=US/ST=Illinois/L=Batavia/O=Fermi Research Alliance/OU=Fermilab/CN=@FERMICLOUDNODE@\.fnal\.gov$" decisionengine_service
+GSI "^/DC=org/DC=incommon/C=US/ST=Illinois/O=Fermi Research Alliance/OU=Fermilab/CN=@FERMICLOUDNODE@\.fnal\.gov$" decisionengine_service
 GSI "^/DC=org/DC=cilogon/C=US/O=Fermi National Accelerator Laboratory/OU=People/CN=@First Last Name@/CN=UID:@username@" decisionengine_service
-GSI "^/DC=org/DC=incommon/C=US/ST=Illinois/L=Batavia/O=Fermi Research Alliance/OU=Fermilab/CN=fermicloud576\.fnal\.gov$" gfactory
+GSI "^/DC=org/DC=incommon/C=US/ST=Illinois/O=Fermi Research Alliance/OU=Fermilab/CN=fermicloud576\.fnal\.gov$" gfactory
 GSI (.*) anonymous
 FS (.*) \1

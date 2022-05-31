@@ -68,7 +68,7 @@
             "match_attrs": {},
             "collectors": [
                 {
-                    "DN": "/DC=org/DC=incommon/C=US/ST=Illinois/L=Batavia/O=Fermi Research Alliance/OU=Fermilab/CN=fermicloud576.fnal.gov",
+                    "DN": "/DC=org/DC=incommon/C=US/ST=Illinois/O=Fermi Research Alliance/OU=Fermilab/CN=fermicloud576.fnal.gov",
                     "comment": "Test Factory",
                     "factory_identity": "gfactory@fermicloud576.fnal.gov",
                     "my_identity": "decisionengine_service@fermicloud576.fnal.gov",
@@ -82,7 +82,7 @@
             "match_attrs": {},
             "schedds": [
                 {
-                    "DN": "/DC=org/DC=incommon/C=US/ST=Illinois/L=Batavia/O=Fermi Research Alliance/OU=Fermilab/CN=@FERMICLOUDNODE@.fnal.gov",
+                    "DN": "/DC=org/DC=incommon/C=US/ST=Illinois/O=Fermi Research Alliance/OU=Fermilab/CN=@FERMICLOUDNODE@.fnal.gov",
                     "fullname": "@FERMICLOUDNODE@.fnal.gov"
                 }
             ]
@@ -104,7 +104,7 @@
     "security": {
         "classad_proxy": "/var/tmp/fe_proxy",
         "comment": "Test DE at @FERMICLOUDNODE@.fnal.gov",
-        "proxy_DN": "/DC=org/DC=incommon/C=US/ST=Illinois/L=Batavia/O=Fermi Research Alliance/OU=Fermilab/CN=@FERMICLOUDNODE@.fnal.gov",
+        "proxy_DN": "/DC=org/DC=incommon/C=US/ST=Illinois/O=Fermi Research Alliance/OU=Fermilab/CN=@FERMICLOUDNODE@.fnal.gov",
         "proxy_selection_plugin": "ProxyAll",
         "security_name": "decisionengine_service",
         "sym_key": "aes_256_cbc",
@@ -225,13 +225,13 @@
 
     "collectors": [
         {
-            "DN": "/DC=org/DC=incommon/C=US/ST=Illinois/L=Batavia/O=Fermi Research Alliance/OU=Fermilab/CN=@FERMICLOUDNODE@.fnal.gov",
+            "DN": "/DC=org/DC=incommon/C=US/ST=Illinois/O=Fermi Research Alliance/OU=Fermilab/CN=@FERMICLOUDNODE@.fnal.gov",
             "group": "default",
             "node": "@FERMICLOUDNODE@.fnal.gov:9618",
             "secondary": "False"
         },
         {
-            "DN": "/DC=org/DC=incommon/C=US/ST=Illinois/L=Batavia/O=Fermi Research Alliance/OU=Fermilab/CN=@FERMICLOUDNODE@.fnal.gov",
+            "DN": "/DC=org/DC=incommon/C=US/ST=Illinois/O=Fermi Research Alliance/OU=Fermilab/CN=@FERMICLOUDNODE@.fnal.gov",
             "group": "default",
             "node": "@FERMICLOUDNODE@.fnal.gov:9618?sock=collector1-40",
             "secondary": "True"
