@@ -91,7 +91,7 @@ local channels = [
       module: "decisionengine_modules.glideinwms.publishers.glideclientglobal",
       parameters: {
         condor_config: "/etc/condor/condor_config",
-        x509_user_proxy: "/var/tmp/fe_proxy",
+        x509_user_proxy: "/var/de/fe_proxy",
         max_retries: 1,
         retry_interval: 2
       }
@@ -100,7 +100,7 @@ local channels = [
       module: "decisionengine_modules.glideinwms.publishers.fe_group_classads",
       parameters: {
         condor_config: "/etc/condor/condor_config",
-        x509_user_proxy: "/var/tmp/fe_proxy",
+        x509_user_proxy: "/var/de/fe_proxy",
         max_retries: 1,
         retry_interval: 2
       }
