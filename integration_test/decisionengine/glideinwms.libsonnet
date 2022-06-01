@@ -102,7 +102,7 @@
     },
 
     "security": {
-        "classad_proxy": "/var/tmp/fe_proxy",
+        "classad_proxy": "/var/de/fe_proxy",
         ***REMOVED***,
         ***REMOVED***,
         "proxy_selection_plugin": "ProxyAll",
@@ -110,7 +110,7 @@
         "sym_key": "aes_256_cbc",
         "credentials": [
             {
-                "absfname": "/var/tmp/vo_proxy",
+                "absfname": "/var/de/vo_proxy",
                 "security_class": "frontend",
                 "trust_domain": "grid",
                 "type": "grid_proxy"
