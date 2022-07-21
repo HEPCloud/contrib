@@ -1,0 +1,6 @@
+# Below add the collector DN, the user DN and the Factory DN
+#GSI "Collector DN" decisionengine_service
+#GSI "user DN" decisionengine_service
+#GSI "Factory DN" gfactory
+GSI (.*) anonymous
+FS (.*) \1
