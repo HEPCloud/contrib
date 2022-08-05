@@ -1,0 +1,25 @@
+# ON YOUR MACHINE (ON ***REMOVED***):
+echo "Enter instance name: (E.g: n1_test)"
+read inst_name
+
+#copy dependencies over to machine that is benchmarking
+cd
+gcloud compute scp oldbenchmark.tar run_DB12.sh ~/GoogleCloudBenchmarking/full_benchmark_for_GCloud.sh $inst_name:~/
+
+
+#####################################################################################################################
+# ON GCLOUD VM (WITHIN 5 MINUTES TO PREVENT GLIDEINWMS PILOT SHUTTING MACHINE DOWN)
+# service glidein-wms stop to stop the machine (not necessary if you run the benchmark file)
+# run files on other machine
+bash full_benchmark_for_GCloud.sh
+
+######################################################################################################################
+# ON YOUR MACHINE (***REMOVED***):
+#
+# save results in a corresponding folder on this machine 
+# ONLY DO THIS AFTER A FEW HOURS!!!!
+cd ~/GoogleCloudBenchmarking/results
+mkdir $inst_name
+gcloud compute scp $inst_name:~/benchmark.txt ./$inst_name/benchmark.txt
+gcloud compute scp $inst_name:~/cpuinfo ./$inst_name/cpuinfo
+gcloud compute scp $inst_name:/root/workdir/suite_results/run_*/bmkrun_report.json ./$inst_name/bmkrun_report.json
