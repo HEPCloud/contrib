@@ -1,0 +1,12 @@
+#!/bin/bash
+cd ~/SpotPriceHistory
+mytimestamp=`date +%Y%m%d`
+echo "Updating Database now!"
+ python3 -u ~/SpotPriceHistory/updateDatabase.py > ~/SpotPriceHistory/log/update-database-${mytimestamp}
+#python3 -u ~/SpotPriceHistory/updateDatabase_test.py > ~/SpotPriceHistory/log/update-database-${mytimestamp}
+echo "running Sim_50 now!"
+ python3 -u ~/SpotPriceHistory/sim_50.py 5 1 1 >> ~/SpotPriceHistory/log/sim_50_5-${mytimestamp}
+# python3 -u ~/SpotPriceHistory/sim_50_test.py 5 1 1 >> ~/SpotPriceHistory/log/sim_50_5-${mytimestamp}
+#python3 -u ~/SpotPriceHistory/sim_50.py 10 1 1 >> ~/SpotPriceHistory/log/sim_50_10-${mytimestamp}
+
+
