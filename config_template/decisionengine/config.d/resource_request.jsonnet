@@ -90,8 +90,8 @@ local channels = [
     glideclientglobal_manifests: {
       module: "decisionengine_modules.glideinwms.publishers.glideclientglobal",
       parameters: {
-        condor_config: "/etc/condor/condor_config",
-        x509_user_proxy: "@CHANGEME@",
+        #condor_config: "/etc/condor/condor_config",
+        #x509_user_proxy: "@CHANGEME@",
         max_retries: 1,
         retry_interval: 2
       }
@@ -99,8 +99,8 @@ local channels = [
     glideclient_manifests: {
       module: "decisionengine_modules.glideinwms.publishers.fe_group_classads",
       parameters: {
-        condor_config: "/etc/condor/condor_config",
-        x509_user_proxy: "@CHANGEME@",
+        #condor_config: "/etc/condor/condor_config",
+        #x509_user_proxy: "@CHANGEME@",
         max_retries: 1,
         retry_interval: 2
       }

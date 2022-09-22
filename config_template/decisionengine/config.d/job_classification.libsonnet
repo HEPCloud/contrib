@@ -88,38 +88,11 @@
          retry_timeout: 20
       }
     },
-    Factory_Entries_AWS: {
+    Factory_Entries: {
        module: "decisionengine.framework.modules.EmptySource",
        name: "EmptySource",
        parameters: {
-         data_product_name: "Factory_Entries_AWS",
-         max_attempts: 100,
-         retry_timeout: 20
-      }
-    },
-    Factory_Entries_LCF: {
-       module: "decisionengine.framework.modules.EmptySource",
-       name: "EmptySource",
-       parameters: {
-         data_product_name: "Factory_Entries_LCF",
-         max_attempts: 100,
-         retry_timeout: 20
-      }
-    },
-    Factory_Entries_Grid: {
-       module: "decisionengine.framework.modules.EmptySource",
-       name: "EmptySource",
-       parameters: {
-         data_product_name: "Factory_Entries_Grid",
-         max_attempts: 100,
-         retry_timeout: 20
-      }
-    },
-    Factory_Entries_GCE: {
-       module: "decisionengine.framework.modules.EmptySource",
-       name: "EmptySource",
-       parameters: {
-         data_product_name: "Factory_Entries_GCE",
+         data_product_name: "Factory_Entries",
          max_attempts: 100,
          retry_timeout: 20
       }
@@ -188,7 +161,7 @@
       }
     }
   },
-  # publishers: {
+  publishers: {
   #   JobClusteringPublisher: {
   #     module: "decisionengine_modules.glideinwms.publishers.job_clustering_publisher",
   #     name: "JobClusteringPublisher",
@@ -202,5 +175,5 @@
   #       retry_interval: 2
   #     }
   #   }
-  # }
+  }
 }
