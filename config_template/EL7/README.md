@@ -1,4 +1,4 @@
-# Generic Decision Engine configuration templates
+# Generic Decision Engine configuration templates for EL7
 
 This directory contains generic template configuration files to run Decision Engine
 
