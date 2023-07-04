@@ -4,7 +4,7 @@
     "advertise_with_tcp": "True",
     "downtimes_file": "frontenddowntime",
     "frontend_monitor_index_page": "False",
-    "frontend_name": "@TEMPLATE_DENODE@",
+    "frontend_name": "@TEMPLATE_DE_NAME@",
     "frontend_versioning": "False",
     "group_parallel_workers": "2",
     "loop_delay": "60",
@@ -119,7 +119,7 @@
     "stage": {
         "base_dir": "/var/lib/gwms-frontend/web-area/stage",
         "use_symlink": "True",
-        "web_base_url": "http://@TEMPLATE_SCHEDD@/vofrontend/stage"
+        "web_base_url": "http://@TEMPLATE_DEHOST@/vofrontend/stage"
     },
 
     "work": {
@@ -223,15 +223,15 @@
 
     "collectors": [
         {
-            "DN": "@TEMPLATE_SCHEDD_DN@",
+            "DN": "@TEMPLATE_POOL_DN@",
             "group": "default",
-            "node": "@TEMPLATE_SCHEDD@:9618",
+            "node": "@TEMPLATE_POOL@:9618",
             "secondary": "False"
         },
         {
-            "DN": "@TEMPLATE_SCHEDD_DN@",
+            "DN": "@TEMPLATE_POOL_DN@",
             "group": "default",
-            "node": "@TEMPLATE_SCHEDD@:9618?sock=collector1-40",
+            "node": "@TEMPLATE_POOL@:9618?sock=collector1-40",
             "secondary": "True"
         }
     ],
