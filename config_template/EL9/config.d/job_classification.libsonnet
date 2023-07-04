@@ -4,7 +4,7 @@
       module: "decisionengine_modules.htcondor.sources.job_q",
       parameters: {
         condor_config: "/etc/condor/condor_config",
-        collector_host: "@TEMPLATE_COLLECTOR@",
+        collector_host: "@TEMPLATE_POOL@",
         schedds: [
           "@TEMPLATE_SCHEDD@"
         ],
