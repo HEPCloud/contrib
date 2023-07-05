@@ -8,7 +8,7 @@ This directory contains generic template configuration files to run Decision Eng
     * decision_engine.jsonnet is the top level Decision Engine configuration (merge it with your version)
     * glideinwms.libsonnet is the GlideinWMS (pressure-based provisioner) configuration file
 
-Most of the files contain `@TEMPLARE...@` placeholders that need to be changed to reflect your specific setup.
+Most of the files contain `@TEMPLATE...@` placeholders that need to be changed to reflect your specific setup.
 E.g. Assuming a Decision Engine colocated with User pool and Scheduler on `host1.domain` and a GlideinWMS Factory on `host2.domain`, 
 you can use the following:
 ```
