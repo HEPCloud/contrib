@@ -68,11 +68,11 @@
             "match_attrs": {},
             "collectors": [
                 {
-                    ***REMOVED***,
+                    "DN": ***REMOVED***,
                     "comment": "Test Factory",
-                    ***REMOVED***,
-                    ***REMOVED***,
-                    ***REMOVED***
+                    "factory_identity": ***REMOVED***,
+                    "my_identity": ***REMOVED***,
+                    "node": ***REMOVED***
                 }
             ]
         },
@@ -82,8 +82,8 @@
             "match_attrs": {},
             "schedds": [
                 {
-                    ***REMOVED***,
-                    ***REMOVED***
+                    "DN": ***REMOVED***,
+                    "fullname": ***REMOVED***
                 }
             ]
         }
@@ -103,8 +103,8 @@
 
     "security": {
         "classad_proxy": "/var/de/fe_proxy",
-        ***REMOVED***,
-        ***REMOVED***,
+        "comment": ***REMOVED***,
+        "proxy_DN": ***REMOVED***,
         "proxy_selection_plugin": "ProxyAll",
         "security_name": "decisionengine_service",
         "sym_key": "aes_256_cbc",
@@ -121,7 +121,7 @@
     "stage": {
         "base_dir": "/var/lib/gwms-frontend/web-area/stage",
         "use_symlink": "True",
-        ***REMOVED***
+        "web_base_url": ***REMOVED***
     },
 
     "work": {
@@ -225,15 +225,15 @@
 
     "collectors": [
         {
-            ***REMOVED***,
+            "DN": "/DC=org/DC=incommon/C=US/ST=Illinois/O=Fermi Research Alliance/OU=Fermilab/CN=@FERMICLOUDNODE@.fnal.gov",
             "group": "default",
-            ***REMOVED***,
+            "node": "@FERMICLOUDNODE@.fnal.gov:9618",
             "secondary": "False"
         },
         {
-            ***REMOVED***,
+            "DN": "/DC=org/DC=incommon/C=US/ST=Illinois/O=Fermi Research Alliance/OU=Fermilab/CN=@FERMICLOUDNODE@.fnal.gov",
             "group": "default",
-            ***REMOVED***,
+            "node": "@FERMICLOUDNODE@.fnal.gov:9618?sock=collector1-40",
             "secondary": "True"
         }
     ],
