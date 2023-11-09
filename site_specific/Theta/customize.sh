@@ -11,7 +11,7 @@
 #
 
 awk --file `dirname $0`/customhelps.awk --source '{
-setoption("cache_peer", "theta-proxy.tmi.alcf.anl.gov parent 3128 0 no-query")
+setoption("cache_peer", "***REMOVED*** parent 3128 0 no-query")
 setoption("acl NET_LOCAL src", "127.0.0.1/32")
 setoption("cache_mem", "128 MB")
 setoptionparameter("cache_dir", 3, "10000")

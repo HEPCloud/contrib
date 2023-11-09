@@ -4,9 +4,9 @@
       module: "decisionengine_modules.htcondor.sources.job_q",
       parameters: {
         condor_config: "/etc/condor/condor_config",
-        collector_host: "@FERMICLOUDNODE@.fnal.gov",
+        collector_host: ***REMOVED***,
         schedds: [
-          "@FERMICLOUDNODE@.fnal.gov"
+          ***REMOVED***
         ],
         constraint: "True",
         classad_attrs: [
@@ -163,7 +163,7 @@
           "TotalSlotCpus":0,
           "GLIDEIN_CredentialIdentifier":''
         },
-        collector_host: "fermicloud576.fnal.gov",
+        collector_host: ***REMOVED***,
         condor_config: "/etc/condor/condor_config"
       },
       max_attempts: 100,
@@ -194,7 +194,7 @@
       name: "JobClusteringPublisher",
       parameters: {
         publish_to_graphite: true,
-        graphite_host: "fifemondata.fnal.gov",
+        graphite_host: ***REMOVED***,
         graphite_port: 2004,
         graphite_context: "hepcloud.de.@FERMICLOUDNODE@.glideinwms",
         output_file: "/etc/decisionengine/modules.data/job_cluster_totals.csv",

@@ -68,11 +68,11 @@
             "match_attrs": {},
             "collectors": [
                 {
-                    "DN": "/DC=org/DC=incommon/C=US/ST=Illinois/O=Fermi Research Alliance/OU=Fermilab/CN=fermicloud576.fnal.gov",
+                    "DN": ***REMOVED***,
                     "comment": "Test Factory",
-                    "factory_identity": "gfactory@fermicloud576.fnal.gov",
-                    "my_identity": "decisionengine_service@fermicloud576.fnal.gov",
-                    "node": "fermicloud576.fnal.gov"
+                    "factory_identity": ***REMOVED***,
+                    "my_identity": ***REMOVED***,
+                    "node": ***REMOVED***
                 }
             ]
         },
@@ -82,8 +82,8 @@
             "match_attrs": {},
             "schedds": [
                 {
-                    "DN": "/DC=org/DC=incommon/C=US/ST=Illinois/O=Fermi Research Alliance/OU=Fermilab/CN=@FERMICLOUDNODE@.fnal.gov",
-                    "fullname": "@FERMICLOUDNODE@.fnal.gov"
+                    "DN": ***REMOVED***,
+                    "fullname": ***REMOVED***
                 }
             ]
         }
@@ -103,8 +103,8 @@
 
     "security": {
         "classad_proxy": "/var/de/fe_proxy",
-        "comment": "Test DE at @FERMICLOUDNODE@.fnal.gov",
-        "proxy_DN": "/DC=org/DC=incommon/C=US/ST=Illinois/O=Fermi Research Alliance/OU=Fermilab/CN=@FERMICLOUDNODE@.fnal.gov",
+        "comment": ***REMOVED***,
+        "proxy_DN": ***REMOVED***,
         "proxy_selection_plugin": "ProxyAll",
         "security_name": "decisionengine_service",
         "sym_key": "aes_256_cbc",
@@ -121,7 +121,7 @@
     "stage": {
         "base_dir": "/var/lib/gwms-frontend/web-area/stage",
         "use_symlink": "True",
-        "web_base_url": "http://@FERMICLOUDNODE@.fnal.gov/vofrontend/stage"
+        "web_base_url": ***REMOVED***
     },
 
     "work": {

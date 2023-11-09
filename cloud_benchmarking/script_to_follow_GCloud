@@ -1,4 +1,4 @@
-# ON YOUR MACHINE (ON FERMICLOUD 241):
+# ON YOUR MACHINE (ON ***REMOVED***):
 echo "Enter instance name: (E.g: n1_test)"
 read inst_name
 
@@ -14,7 +14,7 @@ gcloud compute scp oldbenchmark.tar run_DB12.sh ~/GoogleCloudBenchmarking/full_b
 bash full_benchmark_for_GCloud.sh
 
 ######################################################################################################################
-# ON YOUR MACHINE (FERMICLOUD 241):
+# ON YOUR MACHINE (***REMOVED***):
 #
 # save results in a corresponding folder on this machine 
 # ONLY DO THIS AFTER A FEW HOURS!!!!

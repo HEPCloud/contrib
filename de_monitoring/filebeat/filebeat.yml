@@ -205,7 +205,7 @@ setup.kibana:
 #----------------------------- Kafka output --------------------------------
 output.kafka:
   # initial brokers for reading cluster metadata
-  hosts: ["lssrv02.fnal.gov:9092", ]
+  hosts: [***REMOVED***, ]
 
   # message topic selection + partitioning
   # topic: '%{[fields.log_topic]}'

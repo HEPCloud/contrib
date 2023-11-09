@@ -11,7 +11,7 @@ local channels = [
         condor_config: "/etc/condor/condor_config",
         factories: [
           {
-            collector_host: "fermicloud576.fnal.gov",
+            collector_host: ***REMOVED***,
             classad_attrs: []
           },
         ],
@@ -24,7 +24,7 @@ local channels = [
         condor_config: "/etc/condor/condor_config",
         factories: [
           {
-            collector_host: "fermicloud576.fnal.gov",
+            collector_host: ***REMOVED***,
             classad_attrs: [],
             correction_map: {
                "GLIDEIN_Resource_Slots":'',
